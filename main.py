@@ -60,7 +60,7 @@ class BaiduTalent:
             result = json_str['applyRecordList'][0]['applyStatus']
             result = result.encode('utf-8')
 
-            if result == "面试通过":
+            if "面试通过" in result:
                 Mail.send(result, result)
                 sys.exit(0)
             else:
