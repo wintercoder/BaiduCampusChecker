@@ -59,11 +59,13 @@ class BaiduTalent:
             json_str = json.loads(result.read())
             result = json_str['applyRecordList'][0]['applyStatus']
             result = result.encode('utf-8')
+            # 常见的状态：面试安排中、面试通过、已变更职位
 
             if "面试通过" in result:
                 Mail.send(result, result)
                 sys.exit(0)
             else:
+                # 首次测试成功后可以注释掉这行就不会邮件骚扰了，只在状态变为通过时通知
                 Mail.send("百度面试结果查询", result)
         except ValueError:
             Mail.send("百度面试结果查询-Cookie过期", 'Cookie过期')
@@ -72,7 +74,7 @@ class BaiduTalent:
     def run(self):
         while True:
             self.check()
-            # 一小时查询一次
+            # 一小时查询一次，一般改为6小时也行
             time.sleep(60 * 60)
 
 
