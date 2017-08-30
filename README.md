@@ -4,7 +4,7 @@
 Python2.x，无依赖库
 
 # Usage
-1. 登陆 [校招官网](http://talent.baidu.com/external/baidu/index.html)  后 F12在Console里输入 `document.cookie();` ，复制整一条（不含引号）到文件里的
+1. 登陆 [校招官网](http://talent.baidu.com/external/baidu/index.html)  后 F12在Console里输入 `document.cookie` ，复制整一条（不含引号）到文件里的
 
 		self.cookie = ""
 
